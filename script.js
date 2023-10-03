@@ -93,6 +93,7 @@ const removeBook = function (event) {
     const bookElement = event.target.closest(".book");
     const book = booksLibrary.find((book) => book.id === bookElement.dataset.id);
     booksLibrary.splice(booksLibrary.indexOf(book), 1);
+    setLocalStorage();
     renderLibrary();
 };
 
