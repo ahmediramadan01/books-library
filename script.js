@@ -3,7 +3,6 @@
 // GLOBAL VARIABLES //
 
 let booksLibrary = [];
-console.log("🚀 -> booksLibrary:", booksLibrary);
 
 // DOM ELEMENTS //
 
@@ -52,7 +51,6 @@ const getLocalStorage = function () {
     renderLibrary();
 };
 getLocalStorage();
-console.log("🚀 -> booksLibrary:", booksLibrary);
 
 const resetLocalStorage = function () {
     localStorage.removeItem("library");
