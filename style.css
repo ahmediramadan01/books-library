@@ -13,3 +13,56 @@ html {
 body {
     font-family: "Inter", sans-serif;
 }
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+.container {
+    max-width: 128rem;
+    margin: 0 auto;
+}
+
+/* Menu Styles */
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5.7rem 3.4rem;
+    border-bottom: 3px solid rgba(154, 154, 154, 0.09);
+}
+
+.primary-heading {
+    font-family: "Jua", sans-serif;
+    font-size: 2.4rem;
+}
+
+.button--add {
+    color: #303030;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 5px;
+    background: #55c875;
+    padding: 1.1rem 1.5rem 1.1rem 1rem;
+    gap: 6px;
+}
+
+.button--add:hover {
+    color: #2b2b2b;
+    background: #4db469;
+}
+
+.add-icon {
+    width: 2.2rem;
+    height: 2.2rem;
+}
