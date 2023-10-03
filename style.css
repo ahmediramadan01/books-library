@@ -179,7 +179,7 @@ button:active {
     border-radius: 0.5rem;
 }
 
-.button--add {
+.button--add-book {
     grid-column: 1 / span 2;
     justify-self: center;
     margin-top: 1rem;
