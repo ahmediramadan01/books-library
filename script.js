@@ -2,7 +2,7 @@
 
 // GLOBAL VARIABLES //
 
-const booksLibrary = [];
+let booksLibrary = [];
 
 // DOM ELEMENTS //
 
@@ -39,6 +39,19 @@ const renderLibrary = function () {
     }
 };
 
+const setLocalStorage = function () {
+    localStorage.setItem("library", JSON.stringify(booksLibrary));
+};
+
+const getLocalStorage = function () {
+    const data = JSON.parse(localStorage.getItem("library"));
+    if (!data) return;
+
+    booksLibrary = data;
+    renderLibrary();
+};
+getLocalStorage();
+
 // CALLBACK FUNCTIONS //
 
 const openModal = function (event) {
@@ -66,6 +79,7 @@ const addBook = function (event) {
     closeModal();
     bookTitleElement.value = bookAuthorElement.value = bookPagesElement.value = "";
     bookStatusElement.value = "want";
+    setLocalStorage();
     renderLibrary();
 };
 
