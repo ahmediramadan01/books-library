@@ -3,6 +3,7 @@
 // GLOBAL VARIABLES //
 
 let booksLibrary = [];
+console.log("🚀 -> booksLibrary:", booksLibrary);
 
 // DOM ELEMENTS //
 
@@ -25,7 +26,7 @@ const renderLibrary = function () {
 
     for (const book of booksLibrary) {
         const html = `
-        <div class="book ${book.status === "read" ? "book--read" : ""}">
+        <div data-id="${book.id}" class="book ${book.status === "read" ? "book--read" : ""}">
             <button class="button button--remove">
                 <img src="./images/remove.svg" alt="" class="remove-icon" />
             </button>
@@ -51,6 +52,12 @@ const getLocalStorage = function () {
     renderLibrary();
 };
 getLocalStorage();
+console.log("🚀 -> booksLibrary:", booksLibrary);
+
+const resetLocalStorage = function () {
+    localStorage.removeItem("library");
+    location.reload();
+};
 
 // CALLBACK FUNCTIONS //
 
@@ -68,13 +75,13 @@ const closeModal = function () {
 
 const addBook = function (event) {
     event.preventDefault();
-
+    const bookId = String(Date.now()).slice(-10);
     const bookTitle = bookTitleElement.value;
     const bookAuthor = bookAuthorElement.value;
     const bookPages = bookPagesElement.value;
     const bookStatus = bookStatusElement.value;
 
-    const book = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
+    const book = new Book(bookId, bookTitle, bookAuthor, bookPages, bookStatus);
     book.addBookToLibrary();
     closeModal();
     bookTitleElement.value = bookAuthorElement.value = bookPagesElement.value = "";
@@ -83,9 +90,18 @@ const addBook = function (event) {
     renderLibrary();
 };
 
+const removeBook = function (event) {
+    if (!event.target.closest(".button--remove")) return;
+    const bookElement = event.target.closest(".book");
+    const book = booksLibrary.find((book) => book.id === bookElement.dataset.id);
+    booksLibrary.splice(booksLibrary.indexOf(book), 1);
+    renderLibrary();
+};
+
 // CONSTRUCTION FUNCTIONS //
 
-const Book = function (title, author, pages, status) {
+const Book = function (id, title, author, pages, status) {
+    this.id = id;
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -108,3 +124,4 @@ document.addEventListener("keydown", function (event) {
 });
 
 bookFormElement.addEventListener("submit", addBook);
+booksElement.addEventListener("click", removeBook);
