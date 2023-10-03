@@ -38,7 +38,7 @@ button:active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5.7rem 3.4rem;
+    padding: 3.4rem;
     border-bottom: 3px solid rgba(154, 154, 154, 0.09);
 }
 
