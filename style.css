@@ -40,8 +40,9 @@ button:active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3.4rem;
+    padding: 2.4rem;
     border-bottom: 3px solid rgba(154, 154, 154, 0.09);
+    margin-bottom: 3.6rem;
 }
 
 .primary-heading {
@@ -74,6 +75,68 @@ button:active {
 }
 
 /* Menu Styles */
+
+/* Books */
+.books {
+    padding: 0 3.4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    gap: 3rem;
+}
+
+.book {
+    width: 26rem;
+    height: 38.5rem;
+    border-radius: 10px;
+    background: #fff;
+    text-align: center;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    overflow: hidden;
+    font-family: "Jua", sans-serif;
+}
+
+.book--read::after {
+    content: "Read";
+    position: absolute;
+    top: 5%;
+    left: -13%;
+    font-family: "Jua", sans-serif;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    background-color: #55c875;
+    padding: 0.5rem 5rem;
+    transform: rotate(-45deg);
+}
+
+.button--remove {
+    color: #303030;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.book__title {
+    font-size: 3.2rem;
+}
+
+.book__author {
+    font-size: 2.2rem;
+}
+
+.book__pages {
+    font-size: 1.6rem;
+    position: absolute;
+    margin: 0 auto;
+    bottom: 5%;
+}
 
 /* Modal */
 .modal {
@@ -132,9 +195,6 @@ button:active {
     top: 0.5rem;
     right: 2rem;
     font-size: 4rem;
-    cursor: pointer;
-    border: none;
-    background: none;
 }
 
 .overlay {
