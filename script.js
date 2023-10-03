@@ -1,11 +1,17 @@
 "use strict";
 
+// GLOBAL VARIABLES //
+
+const booksLibrary = [];
+
 // DOM ELEMENTS //
 
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const buttonOpenModal = document.querySelector(".button--open-modal");
 const buttonCloseModal = document.querySelector(".button--close-modal");
+
+// CALLBACK FUNCTIONS //
 
 const openModal = function (event) {
     event.preventDefault();
@@ -16,6 +22,19 @@ const openModal = function (event) {
 const closeModal = function () {
     modal.classList.add("hidden");
     overlay.classList.add("hidden");
+};
+
+// CONSTRUCTION FUNCTIONS //
+
+const Book = function (title, author, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+};
+
+Book.prototype.addBookToLibrary = function () {
+    booksLibrary.push(this);
 };
 
 // EVENT LISTENERS //
