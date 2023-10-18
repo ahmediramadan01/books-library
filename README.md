@@ -1,8 +1,11 @@
-# Books Library: **[LIVE](https://ahmediramadan01.github.io/books-library/ "Books Library's Live Preview")**
+# Books Library: **[LIVE](https://ahmediramadan01.github.io/books-library-javascript/ "Books Library's Live Preview")**
 
-## Books library application with local storage
+## Technologies: HTML, CSS, JavaScript (using Constructor Functions)
 
-### Technologies: HTML, CSS, JavaScript
+### Features:
+
+-   Supports local storage
+-   Add/delete a book
 
 ![Books Library's Desktop Screenshot](./images/books-library-1-desktop.png?raw=true "Empty Books Library (Desktop)")
 ![Books Library's Desktop Screenshot](./images/books-library-2-desktop.png?raw=true "Books Library (Desktop)")
