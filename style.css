@@ -13,6 +13,7 @@ html {
 body {
     font-family: "Inter", sans-serif;
     background-color: #f3f3f3;
+    animation: fade-in 500ms;
 }
 
 button {
@@ -32,6 +33,26 @@ button:active {
 .container {
     max-width: 128rem;
     margin: 0 auto;
+}
+
+/* Animations */
+
+@keyframes scale-up {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Menu Styles */
@@ -99,6 +120,7 @@ button:active {
     position: relative;
     overflow: hidden;
     font-family: "Jua", sans-serif;
+    animation: scale-up 500ms;
 }
 
 .book--read::after {
