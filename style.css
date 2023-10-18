@@ -13,7 +13,6 @@ html {
 body {
     font-family: "Inter", sans-serif;
     background-color: #f3f3f3;
-    animation: fade-in 500ms;
 }
 
 button {
@@ -43,15 +42,6 @@ button:active {
     }
     to {
         transform: scale(1);
-    }
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
     }
 }
 
