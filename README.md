@@ -4,6 +4,7 @@
 
 ### Features:
 
+-   Responsive on all screen sizes
 -   Supports local storage
 -   Add/delete a book
 
