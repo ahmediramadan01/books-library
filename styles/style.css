@@ -128,11 +128,12 @@ button:active {
     transform: rotate(-45deg);
 }
 
-.button--remove {
-    color: #303030;
+.buttons {
     position: absolute;
     top: 1rem;
     right: 1rem;
+    display: flex;
+    gap: 2px;
 }
 
 .book__title {

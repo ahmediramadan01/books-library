@@ -26,9 +26,14 @@ const renderLibrary = function () {
     for (const book of booksLibrary) {
         const html = `
         <div data-id="${book.id}" class="book ${book.status === "read" ? "book--read" : ""}">
-            <button class="button button--remove">
-                <img src="./images/remove.svg" alt="" class="remove-icon" />
-            </button>
+            <div class="buttons">    
+                <button class="button button--edit">
+                    <img src="./images/edit.svg" alt="" class="edit-icon" />
+                </button>
+                <button class="button button--remove">
+                    <img src="./images/remove.svg" alt="" class="remove-icon" />
+                </button>
+            </div>
             <h3 class="book__title">${book.title}</h3>
             <p class="book__author">${book.author}</p>
             <span class="book__pages">${book.pages}</span>
@@ -73,19 +78,47 @@ const closeModal = function () {
 
 const addBook = function (event) {
     event.preventDefault();
-    const bookId = String(Date.now()).slice(-10);
     const bookTitle = bookTitleElement.value;
     const bookAuthor = bookAuthorElement.value;
     const bookPages = bookPagesElement.value;
     const bookStatus = bookStatusElement.value;
 
-    const book = new Book(bookId, bookTitle, bookAuthor, bookPages, bookStatus);
-    book.addBookToLibrary();
+    const editingBookId = bookFormElement.dataset.editingBookId;
+
+    if (editingBookId) {
+        const book = booksLibrary.find((b) => b.id === editingBookId);
+        book.title = bookTitle;
+        book.author = bookAuthor;
+        book.pages = bookPages;
+        book.status = bookStatus;
+        bookFormElement.removeAttribute("data-editing-book-id");
+    } else {
+        const bookId = String(Date.now()).slice(-10);
+        const book = new Book(bookId, bookTitle, bookAuthor, bookPages, bookStatus);
+        book.addBookToLibrary();
+    }
+
     closeModal();
     bookTitleElement.value = bookAuthorElement.value = bookPagesElement.value = "";
     bookStatusElement.value = "want";
     setLocalStorage();
     renderLibrary();
+};
+
+const editBook = function (event) {
+    if (event.target.closest(".button--edit")) {
+        const bookElement = event.target.closest(".book");
+        const book = booksLibrary.find((b) => b.id === bookElement.dataset.id);
+
+        bookTitleElement.value = book.title;
+        bookAuthorElement.value = book.author;
+        bookPagesElement.value = book.pages;
+        bookStatusElement.value = book.status;
+
+        bookFormElement.dataset.editingBookId = book.id;
+
+        openModal(event);
+    }
 };
 
 const removeBook = function (event) {
@@ -123,4 +156,5 @@ document.addEventListener("keydown", function (event) {
 });
 
 bookFormElement.addEventListener("submit", addBook);
+booksElement.addEventListener("click", editBook);
 booksElement.addEventListener("click", removeBook);
