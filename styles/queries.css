@@ -1,31 +1,31 @@
 /* BELOW 1198px */
 @media (max-width: 74.875em) {
-    .books {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .books {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* BELOW 908px */
 @media (max-width: 56.75em) {
-    .books {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .books {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* BELOW 618px */
 @media (max-width: 38.625em) {
-    .books {
-        grid-template-columns: repeat(1, 1fr);
-    }
+  .books {
+    grid-template-columns: repeat(1, 1fr);
+  }
 
-    .modal {
-        padding: 2rem 3rem;
-        max-width: 30rem;
-    }
+  .modal {
+    padding: 2rem 3rem;
+    max-width: 30rem;
+  }
 
-    .modal__form {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+  .modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
