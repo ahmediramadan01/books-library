@@ -4,9 +4,9 @@
 
 ### Features:
 
-- Responsive on all screen sizes
-- Supports local storage
-- Can add, edit, or delete a book
+-   Responsive on all screen sizes
+-   Supports local storage
+-   Can add, edit, or delete a book
 
 ![Books Library's Desktop Screenshot](./images/books-library-1-desktop.png?raw=true "Empty Books Library (Desktop)")
 ![Books Library's Desktop Screenshot](./images/books-library-2-desktop.png?raw=true "Books Library (Desktop)")
